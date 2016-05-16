@@ -23,16 +23,10 @@ src_test() {
 }
 
 src_compile() {
-	rebar3 clean tar
+	rebar3 release
 }
 
 src_install() {
-	# erlang module
-	dodir /opt/${PN}
-	einfo "${PN} ${S} ${D}"
-	#cp -R "${S}/" "${D}/" || die "Install failed!"
-}
-
-pkg_info() {
-	"${ROOT}"/usr/bin/mythfrontend --version
+    	insinto /opt/
+    	doins -r ${WORKDIR}/${PN}-${PV}/_build/default/rel/${PN}/
 }
