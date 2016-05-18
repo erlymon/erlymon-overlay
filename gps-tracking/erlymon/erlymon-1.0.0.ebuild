@@ -29,4 +29,17 @@ src_compile() {
 src_install() {
     	insinto /opt/
     	doins -r ${WORKDIR}/${PN}-${PV}/_build/default/rel/${PN}/
+
+	insinto /opt/${PN}/releases/${PV}/
+	doins -r ${WORKDIR}/${PN}-${PV}/config/{vm.args,sys.config}
+
+	exeinto /opt/${PN}
+	doexe ${WORKDIR}/${PN}-${PV}/files/erlymonctl
+
+	doinitd ${WORKDIR}/${PN}-${PV}/files/openrc/${PN}
+}
+
+pkg_postinst() {
+	elog "elog: Hello world"
+	ewarn "ewarn: Hello world"
 }
