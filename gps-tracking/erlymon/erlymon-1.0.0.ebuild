@@ -23,20 +23,24 @@ src_test() {
 }
 
 src_compile() {
-	rebar3 release
+	rebar3 tar
 }
 
 src_install() {
-    	insinto /opt/
-    	doins -r ${WORKDIR}/${PN}-${PV}/_build/default/rel/${PN}/
+	mkdir -p ${WORKDIR}/${PN}-${PV}/_build/${PN}
+	tar xvzpf ${WORKDIR}/${PN}-${PV}/_build/default/rel/${PN}/${PN}-${PV}.tar.gz --xattrs -C ${WORKDIR}/${PN}-${PV}/_build/${PN}
+	cp ${WORKDIR}/${PN}-${PV}/_build/${PN}/releases/${PV}/vm.args.orig ${WORKDIR}/${PN}-${PV}/_build/${PN}/releases/${PV}/vm.args
+	cp ${WORKDIR}/${PN}-${PV}/_build/${PN}/releases/${PV}/sys.config.orig ${WORKDIR}/${PN}-${PV}/_build/${PN}/releases/${PV}/sys.config
 
-	insinto /opt/${PN}/releases/${PV}/
-	doins -r ${WORKDIR}/${PN}-${PV}/config/{vm.args,sys.config}
+    	insinto /opt/
+    	doins -r ${WORKDIR}/${PN}-${PV}/_build/${PN}/
 
 	exeinto /opt/${PN}
 	doexe ${WORKDIR}/${PN}-${PV}/files/erlymonctl
 
 	doinitd ${WORKDIR}/${PN}-${PV}/files/openrc/${PN}
+
+	fperms 777 /opt/${PN}/bin/{${PN},${PN}-${PV}}
 }
 
 pkg_postinst() {
