@@ -7,7 +7,7 @@ To enable this overlay make sure you are using a recent Portage version (at leas
 [erlymon-overlay]
 location = /usr/local/portage/erlymon-overlay
 sync-type = git
-sync-uri = https://github.com/pese-git/erlymon-overlay.git
+sync-uri = https://github.com/erlymon/erlymon-overlay.git
 priority=9999
 ```
 
@@ -15,7 +15,7 @@ Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all o
 
 # With layman
 
-Add `https://raw.github.com/pese-git/erlymon-overlay/master/repositories.xml` to overlays section in `/etc/layman/layman.cfg`.
+Add `https://raw.github.com/erlymon/erlymon-overlay/master/repositories.xml` to overlays section in `/etc/layman/layman.cfg`.
 
 Or read the instructions on the [Gentoo Wiki](http://wiki.gentoo.org/wiki/Layman#Adding_custom_overlays), then invoke the following:
 
