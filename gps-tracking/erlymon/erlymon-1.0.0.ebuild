@@ -7,8 +7,8 @@ EAPI=4
 inherit bash-completion-r1
 
 DESCRIPTION="Erlymon OpenSource GPS Tracking System"
-HOMEPAGE="https://github.com/pese-git/erlymon"
-SRC_URI="https://github.com/pese-git/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://www.erlymon.org"
+SRC_URI="https://github.com/erlymon/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3.0"
 SLOT="0"
