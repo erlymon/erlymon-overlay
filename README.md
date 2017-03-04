@@ -19,7 +19,7 @@ Add `https://raw.github.com/erlymon/erlymon-overlay/master/repositories.xml` to 
 
 Or read the instructions on the [Gentoo Wiki](http://wiki.gentoo.org/wiki/Layman#Adding_custom_overlays), then invoke the following:
 
-	layman -f -a erlymon-overlay
+	layman -o https://raw.github.com/erlymon/erlymon-overlay/master/repositories.xml -f -a erlymon-overlay
 
 After performing those steps, the following should work (or any other package from this overlay):
 
